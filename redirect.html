@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Открыть WhatsApp</title>
+    <title>Запуск WhatsApp через API</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,22 +54,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Открыть WhatsApp</h1>
-        <p>Нажмите на кнопку для открытия WhatsApp.</p>
-        <button class="button" onclick="openWhatsApp()">Открыть WhatsApp</button>
+        <h1>Запустить WhatsApp</h1>
+        <p>Нажмите на кнопку ниже для запуска WhatsApp.</p>
+        <button class="button" onclick="launchWhatsApp()">Открыть WhatsApp</button>
     </div>
 
     <script type="text/javascript">
-        function openWhatsApp() {
-            const whatsappLink = "https://wa.me/996501668998";
+        function launchWhatsApp() {
+            // Ссылка на WhatsApp через системное API
+            const whatsappLink = "whatsapp://send?phone=+996501668998";
 
-            // Пробуем открыть через веб-ссылку, что должно сработать даже в Safari
+            // Попробуем открыть WhatsApp
             window.location.href = whatsappLink;
 
-            // Если не удается открыть, пробуем через схему приложения (может не сработать в Safari напрямую)
+            // Альтернативный способ через стандартную ссылку, если API не сработает
             setTimeout(() => {
-                window.location.href = "whatsapp://send?phone=+996501668998";
-            }, 1000);
+                const fallbackLink = "https://wa.me/996501668998";
+                window.location.href = fallbackLink;
+            }, 2000); // через 2 секунды, если WhatsApp не открылся
         }
     </script>
 </body>
