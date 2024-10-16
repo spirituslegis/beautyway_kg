@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переадресация</title>
+
+    <!-- Переадресация через 10 секунд на WhatsApp -->
+    <meta http-equiv="refresh" content="10;url=https://wa.me/996501668998">
+
+    <script type="text/javascript">
+        // Сначала перенаправляем в Telegram сразу
+        window.location.href = "tg://resolve?domain=username";
+
+        // Через 10 секунд перенаправляем в WhatsApp
+        setTimeout(function() {
+            window.location.href = "https://wa.me/996501668998";
+        }, 10000); // Задержка в 10 секунд (10000 миллисекунд)
+    </script>
+</head>
+<body>
+    <p>Вы сейчас будете переадресованы в Telegram, а затем в WhatsApp через 10 секунд...</p>
+    <p>Если переадресация не сработала, <a href="https://wa.me/996501668998">нажмите здесь, чтобы перейти в WhatsApp</a>.</p>
+</body>
+</html>
