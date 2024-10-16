@@ -9,20 +9,14 @@ $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $isIOS = strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false;
 
 // Определяем номер телефона
-$phoneNumber = '+996501668998'; // Замените на ваш номер
+$phoneNumber = '996501668998'; // Замените на ваш номер (без +)
 
-// Устанавливаем ссылки
-$whatsappAppLink = "whatsapp://send?phone=$phoneNumber";
-$whatsappWebLink = "https://wa.me/$phoneNumber";
-
-// Перенаправление в зависимости от устройства
 if ($isIOS) {
     // Пытаемся открыть WhatsApp, если это iOS
-    header("Location: $whatsappAppLink");
-    exit();
+    header("Location: whatsapp://send?phone=$phoneNumber");
 } else {
     // Открываем веб-версию для других устройств
-    header("Location: $whatsappWebLink");
-    exit();
+    header("Location: https://wa.me/$phoneNumber");
 }
+exit();
 ?>
