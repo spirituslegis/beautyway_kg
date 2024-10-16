@@ -61,17 +61,17 @@
 
     <script type="text/javascript">
         function launchWhatsApp() {
-            // Ссылка на WhatsApp через системное API
             const whatsappLink = "whatsapp://send?phone=+996501668998";
 
             // Попробуем открыть WhatsApp
             window.location.href = whatsappLink;
 
-            // Альтернативный способ через стандартную ссылку, если API не сработает
+            // Альтернативный вариант через стандартную ссылку, если WhatsApp не открылся
             setTimeout(() => {
+                // Ссылка на веб-версию WhatsApp
                 const fallbackLink = "https://wa.me/996501668998";
                 window.location.href = fallbackLink;
-            }, 2000); // через 2 секунды, если WhatsApp не открылся
+            }, 2000); // ждем 2 секунды перед переходом
         }
     </script>
 </body>
